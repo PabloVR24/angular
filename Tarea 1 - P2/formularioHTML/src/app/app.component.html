@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js
+"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css
+" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Ticket de Turno</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="wrapper form-group">
+                <div class="box">
+                    <label for="fname">Nombre de Quien Realizara el Tramite</label>
+                    <input type="text" name="fname" id="fname" formControlName="fname" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['fname'].errors
+                      }" class="form-control" />
+                    <div *ngIf="submitted && registerForm.controls['fname'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['fname'].errors['required']">
+                            Este campo es requerido
+                        </div>
+
+                        <div *ngIf="submitted && registerForm.controls['fname'].hasError('pattern')">
+                            Nombre Invalido
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <input type="text" name="lCurp" id="lCurp" formControlName="lCurp" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['lCurp'].errors
+                      }" class="form-control" />
+                    <div *ngIf="submitted && registerForm.controls['lCurp'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['lCurp'].errors['required']">
+                            Este campo es requerido
+                        </div>
+
+                        <div *ngIf="submitted && registerForm.controls['lCurp'].hasError('pattern')">
+                            CURP Invalida
+                        </div>
+                    </div>
+                    <label for="lCurp">CURP:</label>
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="box">
+                    <input type="text" name="name" id="name" formControlName="name" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['name'].errors
+                      }" class="form-control" />
+                    <div *ngIf="submitted && registerForm.controls['name'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['name'].errors['required']">
+                            Este campo es requerido
+                        </div>
+
+                        <div *ngIf="submitted && registerForm.controls['name'].hasError('pattern')">
+                            Nombre Invalido
+                        </div>
+                    </div>
+                    <label for="name">Nombre</label>
+                </div>
+                <div class="box">
+                    <input type="text" name="firstName" id="firstName" formControlName="firstName" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['firstName'].errors
+                      }" class="form-control" />
+                    <div *ngIf="submitted && registerForm.controls['firstName'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['firstName'].errors['required']">
+                            Este campo es requerido
+                        </div>
+
+                        <div *ngIf="submitted && registerForm.controls['firstName'].hasError('pattern')">
+                            Apellido Invalido
+                        </div>
+                    </div>
+                    <label for="firstName">Ap. Paterno</label>
+                </div>
+                <div class="box">
+                    <input type="text" name="lastName" id="lastName" formControlName="lastName" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['lastName'].errors
+                      }" class="form-control" />
+                    <div *ngIf="submitted && registerForm.controls['lastName'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['lastName'].errors['required']">
+                            Este campo es requerido
+                        </div>
+
+                        <div *ngIf="submitted && registerForm.controls['lastName'].hasError('pattern')">
+                            Apellido Invalido
+                        </div>
+                    </div>
+                    <label for="lastName">Ap. Materno</label>
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="box">
+                    <input type="tel" name="tel" id="tel" formControlName="tel" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['tel'].errors
+                      }" class="form-control" />
+                    <div *ngIf="submitted && registerForm.controls['tel'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['tel'].errors['required']">
+                            Este campo es requerido
+                        </div>
+
+                        <div *ngIf="submitted && registerForm.controls['tel'].hasError('pattern')">
+                            Telefono Invalido
+                        </div>
+                    </div>
+                    <label for="tel">Telefono:</label>
+                </div>
+                <div class="box">
+                    <input type="tel" name="cel" id="cel" formControlName="cel" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['cel'].errors
+                      }" class="form-control" />
+                    <div *ngIf="submitted && registerForm.controls['cel'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['cel'].errors['required']">
+                            Este campo es requerido
+                        </div>
+
+                        <div *ngIf="submitted && registerForm.controls['cel'].hasError('pattern')">
+                            Celular Invalido
+                        </div>
+                    </div>
+                    <label for="cel">Celular:</label>
+                </div>
+                <div class="box">
+                    <input type="email" name="mail" id="mail" formControlName="mail" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['mail'].errors
+                      }" class="form-control" />
+                    <div *ngIf="submitted && registerForm.controls['mail'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['mail'].errors">
+                            Email Invalido
+                        </div>
+                    </div>
+                    <label for="mail">e-mail</label>
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="box">
+                    <select name="mes" id="mes" formControlName="mes" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['mes'].errors
+                      }" class="form-control">
+                    <option class="opt" hidden></option>
+                    <option class="opt">Opcion1</option>
+                    <option class="opt">Opcion2</option>
+                    <option class="opt">Opcion3</option>
+                    </select>
+                    <div *ngIf="submitted && registerForm.controls['mes'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['mes'].errors['required']">
+                            Este campo es requerido
+                        </div>
+                    </div>
+                    <label for="mes">Nivel al que desea ingresar o que ya cursa el alumno:
+            </label>
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="box">
+                    <select name="mes" id="mes1" formControlName="mes1" [ngClass]="{
+                        'is-invalid':
+                          submitted && registerForm.controls['mes1'].errors
+                      }" class="form-control">>
+              <option class="opt" hidden></option>
+              <option class="opt">Opcion1</option>
+              <option class="opt">Opcion2</option>
+              <option class="opt">Opcion3</option>
+            </select>
+                    <div *ngIf="submitted && registerForm.controls['mes1'].errors" class="text-warning">
+                        <div *ngIf="submitted && registerForm.controls['mes1'].errors['required']">
+                            Este campo es requerido
+                        </div>
+                    </div>
+                    <label for="mes1">Asunto a tratar: </label>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="box">
+                    <button class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+</html>
